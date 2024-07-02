@@ -38,30 +38,3 @@ function os.drawWindow(x, y, width, height, title)
 end
 
 return os
-
--- os.lua (continued)
-function os.drawButton(x, y, width, height, label)
-    term.setCursorPos(x, y)
-    term.write("[" .. string.rep(" ", width - 2) .. "]")
-    term.setCursorPos(x + 1, y)
-    term.write(label)
-end
-
-function os.handleClick(x, y)
-    if x >= 5 and x <= 10 and y == 3 then
-        term.setCursorPos(1, 1)
-        term.write("Button Clicked!")
-    else
-        term.setCursorPos(x, y)
-        term.write("X")
-    end
-end
-
--- Update init function to draw a button
-function os.init()
-    term.clear()
-    term.setCursorPos(1, 1)
-    print("Welcome to the OS!")
-    os.drawButton(5, 3, 6, 1, "Click")
-    os.run()
-end
